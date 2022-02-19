@@ -1,0 +1,23 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: HelloWorld
+    network: celo-alfajores
+    source:
+      address: "0xe6Af43EA05db26410eE054AD162162954E7848db"
+      abi: HelloWorld
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - NameUpdated
+      abis:
+        - name: HelloWorld
+          file: HelloWorld\build\contracts\HelloWorld.json
+      eventHandlers:
+        - event: NameUpdated(string,address)
+          handler: handleNameUpdated
+      file: HelloWorld\HelloWorld.wasm

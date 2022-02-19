@@ -1,0 +1,5 @@
+type Name @entity {
+  id: ID!
+  newName: String
+  updater: Bytes!
+}

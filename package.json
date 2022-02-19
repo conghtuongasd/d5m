@@ -1,0 +1,29 @@
+{
+  "name": "d5d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ celo",
+    "create-local": "graph create --node http://localhost:8020/ celo",
+    "remove-local": "graph remove --node http://localhost:8020/ celo",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 celo",
+    "migrate": "truffle deploy --network alfajores",
+    "ginit": "graph init --studio d5m",
+    "auth": "graph auth  --studio a6dcea9d61fdeecffa24751146bfc753"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphprotocol/graph-ts": "^0.24.1",
+    "@truffle/hdwallet-provider": "^2.0.3"
+  }
+}
