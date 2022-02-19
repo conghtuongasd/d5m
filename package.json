@@ -6,24 +6,33 @@
   "directories": {
     "test": "test"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --timeout 10000",
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ celo",
-    "create-local": "graph create --node http://localhost:8020/ celo",
-    "remove-local": "graph remove --node http://localhost:8020/ celo",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 celo",
+    "deploy": "graph deploy --product hosted-service conghtuongasd/d5m",
+    "create-local": "graph create --node http://localhost:8020/ conghtuongasd/d5m",
+    "remove-local": "graph remove --node http://localhost:8020/ conghtuongasd/d5m",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 conghtuongasd/d5m",
     "migrate": "truffle deploy --network alfajores",
-    "ginit": "graph init --studio d5m",
-    "auth": "graph auth  --studio a6dcea9d61fdeecffa24751146bfc753"
+    "ginit": "graph init --product hosted-service --from-contract 0xe6Af43EA05db26410eE054AD162162954E7848db --network celo-alfajores --abi ./build/contracts/HelloWorld.json conghtuongasd/d5m",
+    "auth": "graph auth --product hosted-service 65f8edacd45142a0b62f9bba95085adf",
+    "setup": "yarn auth && yarn build && yarn deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@celo-tools/celo-ethers-wrapper": "^0.1.0",
     "@graphprotocol/graph-ts": "^0.24.1",
-    "@truffle/hdwallet-provider": "^2.0.3"
+    "@truffle/hdwallet-provider": "^2.0.3",
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.0",
+    "ethers": "^5.5.4",
+    "mocha": "^9.2.1",
+    "web3": "^1.7.0"
   }
 }
